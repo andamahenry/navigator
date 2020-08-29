@@ -1,32 +1,31 @@
-let mymap = L.map('mapid').fitWorld();//32.600970,0.317044
-
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-	maxZoom: 18,
-	id: 'mapbox/streets-v11',
-	tileSize: 512,
-	zoomOffset: -1,
-	accessToken: 'pk.eyJ1IjoiYW5kYW1haGVucnkiLCJhIjoiY2tlNWdtbjBrMTJ6NjJ6bzR4anExYmQyYiJ9.flTkhaTWTkKqOFHkkzREbA'
-}).addTo(mymap);
-
-function onLocationError(e) {
-	alert(e.message);
+"use strict"
+var map;
+window.onload = function(){
+	initializer();
+	map.on('click',onmapclick);
 }
-mymap.locate({setView: true, maxZoom: 13});
+function initializer(){
+	// initialize Leaflet
+	map = L.map('map').setView({lon: 32.54700064661847, lat: 0.3350024208544684}, 2);//: 0.3350024208544684,32.54700064661847
 
-mymap.on('locationerror', onLocationError);
+	// add the OpenStreetMap tiles
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+	}).addTo(map);
 
+	// show the scale bar on the lower left corner
+	L.control.scale().addTo(map);
 
-function mapUpdator(){
-	//console.log('kakola');
-	let located = mymap.locate()._lastCenter;
-	console.log(located);
-	L.marker(located).addTo(mymap);
-	//console.log(locate.lat,locate.lng);
+	// show a marker on the map
+	//L.marker({lon: 0, lat: 0}).bindPopup('The center of the world').addTo(map);
+}
+function onmapclick(e){
+	//console.log(e);
+	var clicked = e.latlng;
+	L.marker();
+	console.log(e.latlng);
+	console.log(e.latlng.lat,e.latlng.lng);
 	
+	//L.marker();
 }
-
-window.onload = function (){
-	let map_updator = setInterval(mapUpdator,3000);	
-}
-
