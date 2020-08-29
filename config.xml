@@ -20,9 +20,9 @@
 <!-- icon src="images/bg1.png" / -->
     
 <plugin name="cordova-plugin-battery-status" />
-<plugin name="cordova-plugin-camera" />
+<!--plugin name="cordova-plugin-camera" />
 <plugin name="cordova-plugin-media-capture" />
-<plugin name="cordova-plugin-geolocation" />
+<plugin name="cordova-plugin-geolocation" / -->
     
 <preference name="fullscreen"   value="false" />
     
