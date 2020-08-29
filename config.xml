@@ -24,13 +24,16 @@
 <plugin name="cordova-plugin-media-capture" />
 <plugin name="cordova-plugin-geolocation" />
     
-<preference name="fullscreen"   value="true" />
+<preference name="fullscreen"   value="false" />
     
 <platform name="android">
     <allow-intent href="market"  />
-</platform>
-    
+    <allow-navigation href="*" />
     <access origin="*" />
+</platform>
+    <allow-intent href="maps:*" />
+    <access origin="maps:*" launch-external="yes" />
+    
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -39,6 +42,6 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     
-    <allow-navigation href="*" />
+    
 
 </widget>
