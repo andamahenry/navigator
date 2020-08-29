@@ -33,7 +33,7 @@
 </platform>
     <allow-intent href="maps:*" />
     <access origin="maps:*" launch-external="yes" />
-    <access origin="https://*.tile.openstreetmap.org/*" launch-external="yes" />
+    <access origin="https://*.tile.openstreetmap.org/" launch-external="yes" />
     <access origin="geo:*" launch-external="yes" />
     
     <allow-intent href="http://*/*" />
